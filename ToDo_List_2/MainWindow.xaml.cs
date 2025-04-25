@@ -120,6 +120,9 @@ namespace ToDo_List_2
             var selectedSort = (Sort_ComboBox.SelectedItem as ComboBoxItem)?.Content?.ToString();
             switch (selectedSort)
             {
+                case "Без сортировки":
+                default:
+                    break;
                 case "По дате (по возворстанию)":
                     finalFiltered = finalFiltered.OrderBy(task => task.DueDate).ToList();
                     break;
@@ -157,7 +160,7 @@ namespace ToDo_List_2
 
         private void Sort_ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            ApplyFilter();
         }
     }
 
